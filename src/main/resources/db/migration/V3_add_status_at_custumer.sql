@@ -1,0 +1,1 @@
+ALTER TABLE custumer ADD status VARCHAR (100);
