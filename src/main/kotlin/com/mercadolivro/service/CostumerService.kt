@@ -1,6 +1,8 @@
 package com.mercadolivro.service
 
 import com.mercadolivro.enums.CustumerStatus
+import com.mercadolivro.enums.Errors
+import com.mercadolivro.excpetion.NotFoundException
 import com.mercadolivro.model.CustumerModel
 import com.mercadolivro.repository.CustumerRepository
 import org.springframework.stereotype.Service
@@ -21,7 +23,7 @@ class  CostumerService(
 
         fun create(custumer: CustumerModel) = custumerRepository.save(custumer)
 
-    fun getById(id: Int): CustumerModel = custumerRepository.findById(id).orElseThrow()
+    fun getById(id: Int): CustumerModel = custumerRepository.findById(id).orElseThrow{ NotFoundException(Errors.ML002.message.format(id), Errors.ML002.code) }
 
     fun update(custumer: CustumerModel) {
 
