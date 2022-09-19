@@ -23,7 +23,7 @@ class  CostumerService(
 
         fun create(custumer: CustumerModel) = custumerRepository.save(custumer)
 
-    fun getById(id: Int): CustumerModel = custumerRepository.findById(id).orElseThrow{ NotFoundException(Errors.ML002.message.format(id), Errors.ML002.code) }
+    fun getById(id: Int): CustumerModel = custumerRepository.findById(id).orElseThrow{ NotFoundException(Errors.ML202.message.format(id), Errors.ML202.code) }
 
     fun update(custumer: CustumerModel) {
 

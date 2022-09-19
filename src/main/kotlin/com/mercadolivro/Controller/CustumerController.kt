@@ -8,6 +8,7 @@ import com.mercadolivro.extension.toReponse
 import com.mercadolivro.service.CostumerService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("custumer")
@@ -23,7 +24,7 @@ class CustumerController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody custumer: PostCustumerRequest) {
+    fun create(@RequestBody @Valid custumer: PostCustumerRequest) {
          costumerService.create(custumer.toCustumerModel())
     }
 

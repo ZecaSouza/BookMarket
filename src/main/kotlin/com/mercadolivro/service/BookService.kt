@@ -21,7 +21,7 @@ class  BookService(
 
     fun findActives(pageable: Pageable): Page<BookModel> = bookRepository.findByStatus(EnumBook.ATIVO, pageable)
 
-    fun finfById(id: Int): BookModel = bookRepository.findById(id).orElseThrow{ NotFoundException(Errors.ML001.message.format(id), Errors.ML001.code) }
+    fun finfById(id: Int): BookModel = bookRepository.findById(id).orElseThrow{ NotFoundException(Errors.ML101.message.format(id), Errors.ML101.code) }
 
     fun delete(id: Int) {
         val book = finfById(id)
