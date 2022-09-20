@@ -35,7 +35,7 @@ class CustumerController(
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun update(@PathVariable id: Int, @RequestBody custumer: PutCustumerRequest) {
+    fun update(@PathVariable id: Int, @Valid @RequestBody custumer: PutCustumerRequest) {
         val custumerSaved = costumerService.getById(id)
         costumerService.update(custumer.toCustumerModel(custumerSaved))
         }
