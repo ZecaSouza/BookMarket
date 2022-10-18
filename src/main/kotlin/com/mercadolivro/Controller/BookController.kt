@@ -36,9 +36,7 @@ class BookController(
     }
 
     @RequestMapping("/{id}")
-    fun finfById(@PathVariable id: Int): BookResponse {
-        return bookService.finfById(id).toResponde()
-    }
+    fun finfById(@PathVariable id: Int): BookResponse = bookService.finfById(id).toResponde()
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

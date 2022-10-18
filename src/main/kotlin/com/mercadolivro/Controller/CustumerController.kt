@@ -18,20 +18,14 @@ class CustumerController(
 ) {
 
     @GetMapping
-    fun getAll(@RequestParam name: String?): List<CustumerResponse> {
-            return costumerService.getAll(name).map { it.toReponse() }
-    }
+    fun getAll(@RequestParam name: String?): List<CustumerResponse> = costumerService.getAll(name).map { it.toReponse() }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody @Valid custumer: PostCustumerRequest) {
-         costumerService.create(custumer.toCustumerModel())
-    }
+    fun create(@RequestBody @Valid custumer: PostCustumerRequest) = costumerService.create(custumer.toCustumerModel())
 
     @GetMapping("/{id}")
-    fun getCustumer(@PathVariable id: Int): CustumerResponse {
-        return costumerService.getById(id).toReponse()
-    }
+    fun getCustumer(@PathVariable id: Int): CustumerResponse = costumerService.getById(id).toReponse()
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -42,9 +36,7 @@ class CustumerController(
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun delete(@PathVariable id: Int) {
-        costumerService.delete(id)
-    }
+    fun delete(@PathVariable id: Int) = costumerService.delete(id)
 
 
 }
