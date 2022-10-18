@@ -6,7 +6,6 @@ import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
 
 data class PostBookRequest (
-
     @field:NotEmpty
     var name: String,
 
@@ -15,4 +14,4 @@ data class PostBookRequest (
 
     @JsonAlias("custumer_id")
     var custumerId: Int? = null
-        )
+)
