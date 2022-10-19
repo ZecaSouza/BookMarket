@@ -11,6 +11,8 @@ interface BookRepository : JpaRepository <BookModel, Int> {
     abstract fun findByStatus(ativo: EnumBook, pageable: Pageable): Page<BookModel>
     abstract fun findByCustumer(custumer: CustumerModel): List<BookModel>
 
+    abstract fun findStatus(check: EnumBook): List<BookModel>
+
 //    abstract fun findAll(pageable: Pageable): Page<BookModel>
 
 }

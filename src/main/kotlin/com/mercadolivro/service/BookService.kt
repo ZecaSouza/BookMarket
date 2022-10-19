@@ -33,7 +33,6 @@ class  BookService(
 
     fun update(book: BookModel) = bookRepository.save(book)
 
-
     fun DeleteByCustumer(custumer: CustumerModel) {
         val books = bookRepository.findByCustumer(custumer)
         for (book in books){
@@ -44,10 +43,10 @@ class  BookService(
 
     fun findAllByIds(bookIds: Set<Int>): List<BookModel> =  bookRepository.findAllById(bookIds).toList()
     fun purchase(books: MutableList<BookModel>) {
-        books.map{
+        books.map {
             it.status = EnumBook.VENDIDO
+            bookRepository.saveAll(books)
         }
-        bookRepository.saveAll(books)
     }
 
 }
